@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Route, Redirect } from "react-router-dom";
@@ -22,11 +22,12 @@ import "./theme/variables.css";
 import Home from "./pages/Home";
 import AdminDashboard from "./pages/AdminDashboard";
 import MemberDashboard from "./pages/MemberDashboard";
-import Payment from "./pages/Payment";
+
 import MyAttendance from "./pages/MyAttendance";
 import Calorie from "./pages/Calorie";
-import RegisterMember from "./pages/RegisterMember";
+
 import QrAttendance from "./pages/QrAttendance";
+
 import ProgressTracker from "./pages/ProgressTracker";
 import MuscleGainTracker from "./pages/MuscleGainTracker";
 import MembersManagement from "./pages/MembersManagement";
@@ -40,24 +41,10 @@ import PaymentReturn from "./pages/PaymentReturn";
 
 /* Import role-based route */
 import PrivateRoute from "./components/PrivateRoute";
-import { ensureToken } from "./services/auth.service"; // add this import
 
 setupIonicReact();
 
 const App: React.FC = () => {
-  useEffect(() => {
-    // Auto ensure token only in development for convenience during local testing
-    if (process.env.NODE_ENV === "development") {
-      (async () => {
-        try {
-          await ensureToken(); // uses default dev email
-        } catch (err) {
-          console.warn("Dev ensureToken failed", err);
-        }
-      })();
-    }
-  }, []);
-
   return (
     <IonApp>
       <IonReactRouter>

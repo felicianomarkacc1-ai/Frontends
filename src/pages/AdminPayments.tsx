@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   IonPage,
   IonHeader,
@@ -17,16 +17,16 @@ import {
   IonRefresherContent,
   IonButton,
   IonAlert,
-} from "@ionic/react";
+} from '@ionic/react';
 import {
   cash,
   person,
   informationCircle,
   trash,
-} from "ionicons/icons";
-import "./AdminPayments.css";
+} from 'ionicons/icons';
+import './AdminPayments.css';
 
-const API_URL = "http://localhost:3002/api";
+const API_URL = 'http://localhost:3002/api';
 
 interface Payment {
   id: number;
@@ -48,39 +48,25 @@ interface Payment {
 const AdminPayments: React.FC = () => {
   const [payments, setPayments] = useState<Payment[]>([]);
   const [filteredPayments, setFilteredPayments] = useState<Payment[]>([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [loading, setLoading] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [paymentToDelete, setPaymentToDelete] = useState<number | null>(null);
   const [presentToast] = useIonToast();
 
-  useEffect(() => {
-    loadPayments();
-    
-    const interval = setInterval(() => {
-      loadPayments();
-    }, 30000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    filterPayments();
-  }, [searchText, payments]);
-
-  const loadPayments = async () => {
+  const loadPayments = useCallback(async () => {
     try {
       setLoading(true);
       console.log('📊 Loading payment history...');
       
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       
       if (!token) {
         console.error('❌ No auth token found');
         presentToast({
-          message: "Please login again",
+          message: 'Please login again',
           duration: 2000,
-          color: "danger",
+          color: 'danger',
         });
         return;
       }
@@ -107,21 +93,31 @@ const AdminPayments: React.FC = () => {
         presentToast({
           message: `Failed to load payments: ${response.status}`,
           duration: 3000,
-          color: "danger",
+          color: 'danger',
         });
         setPayments([]);
       }
     } catch (error: any) {
-      console.error("❌ Error loading payments:", error);
+      console.error('❌ Error loading payments:', error);
       presentToast({
         message: `Error: ${error.message}`,
         duration: 3000,
-        color: "danger",
+        color: 'danger',
       });
     } finally {
       setLoading(false);
     }
-  };
+  }, [presentToast]); // presentToast is used inside loadPayments
+
+  useEffect(() => {
+    loadPayments();
+    const interval = setInterval(loadPayments, 30000);
+    return () => clearInterval(interval);
+  }, [loadPayments]);
+
+  useEffect(() => {
+    filterPayments();
+  }, [searchText, payments]);
 
   const filterPayments = () => {
     let filtered = payments;
