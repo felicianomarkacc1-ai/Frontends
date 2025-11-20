@@ -1,0 +1,131 @@
+.equipment-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.equipment-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.search-section {
+  margin-bottom: 1.5rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-card.success {
+  border-color: rgba(0, 230, 118, 0.3);
+}
+
+.stat-card.warning {
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.stat-card.danger {
+  border-color: rgba(244, 67, 54, 0.3);
+}
+
+.stat-card ion-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #00e676;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: #fff;
+}
+
+.stat-card p {
+  color: #999;
+  margin: 0;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.equipment-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.equipment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.equipment-header h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.success {
+  background: rgba(0, 230, 118, 0.2);
+  color: #00e676;
+}
+
+.status-badge.warning {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+.status-badge.danger {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.equipment-details p {
+  margin: 0.5rem 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.equipment-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+}
+
+.empty-state ion-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.save-btn {
+  margin-top: 1.5rem;
+  --background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  --color: #000;
+}

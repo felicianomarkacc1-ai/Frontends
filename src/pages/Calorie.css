@@ -1,0 +1,78 @@
+/* Calorie.css */
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #66ff99;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1d;
+  color: #fff;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #66ff99;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #4cd87d;
+}
+
+.results {
+  margin-top: 25px;
+}
+
+.card {
+  background: #1a1a1d;
+  padding: 18px;
+  margin: 12px 0;
+  border-left: 5px solid #66ff99;
+  border-radius: 8px;
+}
+
+.card strong {
+  display: block;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.highlight {
+  font-size: 20px;
+  font-weight: bold;
+  color: #66ff99;
+}

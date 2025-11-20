@@ -1,0 +1,590 @@
+.qrattendance-container {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --padding-top: 0;
+  --padding-bottom: 2rem;
+}
+
+/* Welcome Header */
+.welcome-header {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.15) 0%, rgba(0, 200, 83, 0.08) 100%);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(0, 230, 118, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: #00e676;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.date-badge ion-icon {
+  font-size: 1.1rem;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.75rem 0 0.5rem;
+  background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-subtitle {
+  color: #999;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Cards */
+ion-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 0 1rem 1rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #00e676;
+  font-size: 1.2rem;
+}
+
+.card-title ion-icon {
+  font-size: 1.5rem;
+}
+
+/* Warning Card */
+.warning-card {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 107, 53, 0.08) 100%);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.warning-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.warning-icon {
+  font-size: 2.5rem;
+  color: #ff6b35;
+  flex-shrink: 0;
+}
+
+.warning-title {
+  color: #ff6b35;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.warning-text {
+  color: #ccc;
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.warning-steps {
+  color: #ccc;
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+
+.warning-steps li {
+  margin-bottom: 0.5rem;
+}
+
+.refresh-btn {
+  --background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  --color: #fff;
+  font-weight: 600;
+}
+
+/* Quick Link Card */
+.quick-link-card {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.1) 0%, rgba(0, 200, 83, 0.05) 100%);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+.history-btn {
+  --background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  --color: #000;
+  height: 52px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Camera Card */
+.camera-card {
+  margin-bottom: 1.5rem;
+}
+
+.camera-placeholder {
+  text-align: center;
+}
+
+.qr-frame {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.1) 0%, rgba(0, 200, 83, 0.05) 100%);
+  border: 2px dashed #00e676;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.qr-icon {
+  font-size: 5rem;
+  color: #00e676;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.qr-frame h3 {
+  color: #fff;
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.qr-frame p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.start-camera-btn {
+  --background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  --color: #000;
+  height: 56px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.start-camera-btn:disabled {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: #666;
+}
+
+/* Camera Active - BIGGER QR SCANNER */
+.camera-active {
+  position: relative;
+}
+
+.qr-reader {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 4px solid #00e676;
+  box-shadow: 0 0 40px rgba(0, 230, 118, 0.4);
+  min-height: 400px;
+}
+
+/* Make the QR code video element larger */
+.qr-reader video {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 400px !important;
+  object-fit: cover;
+}
+
+/* Increase the scan region size */
+#qr-reader__scan_region {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#qr-reader__dashboard_section_swaplink {
+  display: none !important;
+}
+
+#qr-reader__dashboard_section_csr {
+  margin-top: 1rem;
+}
+
+.scanning-info {
+  margin-top: 1.5rem;
+}
+
+.scan-tip {
+  background: rgba(0, 230, 118, 0.1);
+  padding: 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #00e676;
+}
+
+.scan-tip-text {
+  color: #00e676;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.scan-tip-subtext {
+  color: #999;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.stop-btn {
+  --background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  height: 52px;
+  font-weight: 700;
+}
+
+/* Instructions Card */
+.instructions-card {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(74, 144, 226, 0.05) 100%);
+  border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.instructions-title {
+  color: #4a90e2;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.instructions-title ion-icon {
+  font-size: 1.3rem;
+}
+
+.instructions-list {
+  color: #ccc;
+  padding-left: 1.5rem;
+  margin: 0;
+  line-height: 2;
+}
+
+.instructions-list li {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.instructions-list li:last-child {
+  margin-bottom: 0;
+}
+
+.instructions-list strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .welcome-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+
+  .qr-frame {
+    padding: 2rem 1rem;
+  }
+
+  .qr-icon {
+    font-size: 4rem;
+  }
+
+  ion-card {
+    margin: 0 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .welcome-title {
+    font-size: 1.3rem;
+  }
+
+  .date-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+.qrattendance-date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ion-color-medium, #666);
+  display: block;
+}
+
+.stat-card {
+  margin: 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.qr-section,
+.camera-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrattendance-wrapper {
+  background: var(--ion-card-background, #ffffff);
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--ion-color-primary, #3880ff);
+  transition: all 0.3s ease;
+}
+
+.qrattendance-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.attendance-logs {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.attendance-log-item {
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  background: var(--ion-item-background, rgba(255, 255, 255, 0.1));
+  transition: background 0.2s ease;
+}
+
+.attendance-log-item:hover {
+  background: var(--ion-color-light, rgba(255, 255, 255, 0.2));
+}
+
+.attendance-log-item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ion-text-color, #000);
+}
+
+.attendance-log-item p {
+  font-size: 0.85rem;
+  margin: 0.2rem 0;
+  color: var(--ion-color-medium, #666);
+  display: flex;
+  align-items: center;
+}
+
+.attendance-log-item ion-icon {
+  margin-right: 0.3rem;
+}
+
+/* Camera scanning styles */
+.camera-section video {
+  border: 2px solid var(--ion-color-primary, #3880ff);
+  border-radius: 12px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .qrattendance-container {
+    padding: 0.5rem;
+  }
+  
+  .qrattendance-wrapper {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .stat-card ion-card-content {
+    padding: 0.75rem !important;
+  }
+  
+  .stat-card h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  .stat-card p {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .qrattendance-wrapper {
+    background: var(--ion-card-background, #1e1e1e);
+    border-color: var(--ion-color-primary, #4a90e2);
+  }
+  
+  .stat-card {
+    background: var(--ion-card-background, #1e1e1e);
+  }
+  
+  .attendance-log-item {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .attendance-log-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Rewards section styles */
+.rewards-section {
+  width: 100%;
+}
+
+.rewards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reward-card {
+  margin: 0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.reward-card.available {
+  border-color: var(--ion-color-success, #00e676);
+  background: rgba(0, 230, 118, 0.05);
+}
+
+.reward-card.claimed {
+  border-color: var(--ion-color-success, #00e676);
+  background: rgba(0, 230, 118, 0.1);
+  opacity: 0.8;
+}
+
+.reward-card.locked {
+  border-color: var(--ion-color-medium, #666);
+  background: rgba(102, 102, 102, 0.05);
+}
+
+.reward-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Progress bar styling */
+.progress-container {
+  margin: 1rem 0;
+}
+
+.progress-container ion-progress-bar {
+  height: 10px;
+  border-radius: 5px;
+}
+
+/* Camera section enhancements */
+.camera-section {
+  width: 100%;
+}
+
+.scanning-overlay {
+  animation: scan-pulse 2s infinite;
+}
+
+@keyframes scan-pulse {
+  0% { 
+    border-color: #00e676; 
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+  }
+  70% { 
+    box-shadow: 0 0 0 15px rgba(0, 230, 118, 0);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+  }
+}
+
+/* Attendance logs compact view */
+.attendance-logs .attendance-log-item {
+  margin-bottom: 0.3rem;
+}
+
+.attendance-logs .attendance-log-item h3 {
+  font-size: 0.9rem;
+}
+
+.attendance-logs .attendance-log-item p {
+  font-size: 0.75rem;
+}
+
+/* Dark theme reward cards */
+@media (prefers-color-scheme: dark) {
+  .reward-card.available {
+    background: rgba(0, 230, 118, 0.15);
+  }
+  
+  .reward-card.claimed {
+    background: rgba(0, 230, 118, 0.2);
+  }
+  
+  .reward-card.locked {
+    background: rgba(102, 102, 102, 0.1);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .rewards-grid {
+    gap: 0.5rem;
+  }
+  
+  .reward-card ion-card-content {
+    padding: 0.75rem !important;
+  }
+  
+  .reward-card h3 {
+    font-size: 0.9rem !important;
+  }
+  
+  .reward-card p {
+    font-size: 0.75rem !important;
+  }
+  
+  .camera-section video {
+    height: 250px;
+  }
+  
+  .scanning-overlay {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}

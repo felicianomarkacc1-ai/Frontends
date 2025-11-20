@@ -1,0 +1,422 @@
+.main {
+  padding: 2rem;
+}
+
+.table-container {
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #444;
+  text-align: left;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.present {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+}
+
+.admin-attendance-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.attendance-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Stats Header */
+.stats-header {
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.stat-icon.primary {
+  color: #4a90e2;
+  background: rgba(74, 144, 226, 0.1);
+}
+
+.stat-icon.success {
+  color: #00e676;
+  background: rgba(0, 230, 118, 0.1);
+}
+
+.stat-info h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.stat-info p {
+  margin: 0;
+  color: #999;
+  font-size: 0.95rem;
+}
+
+/* QR Code Card */
+.qr-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+.qr-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #00e676;
+  font-size: 1.4rem;
+}
+
+.qr-title ion-icon {
+  font-size: 1.8rem;
+}
+
+.qr-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.qr-code-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.qr-code-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(0, 230, 118, 0.2);
+  border: 4px solid #00e676;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 12px 48px rgba(0, 230, 118, 0.2);
+  }
+  50% {
+    box-shadow: 0 12px 64px rgba(0, 230, 118, 0.4);
+  }
+}
+
+.qr-code-container svg {
+  display: block;
+}
+
+.qr-branding {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  color: #000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 230, 118, 0.4);
+}
+
+.qr-branding ion-icon {
+  font-size: 1.2rem;
+}
+
+.qr-info {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.qr-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.expiry-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.expiry-text ion-icon {
+  font-size: 1rem;
+}
+
+.qr-instructions p {
+  background: rgba(0, 230, 118, 0.05);
+  border-left: 4px solid #00e676;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.qr-loading,
+.qr-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  color: #999;
+}
+
+.qr-empty ion-icon {
+  font-size: 4rem;
+  color: #666;
+}
+
+/* Attendance Table Card */
+.attendance-table-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4a90e2;
+  font-size: 1.3rem;
+}
+
+.table-title ion-icon {
+  font-size: 1.6rem;
+}
+
+.table-title ion-badge {
+  margin-left: auto;
+}
+
+.loading-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 1rem;
+  color: #999;
+}
+
+.empty-state ion-icon {
+  font-size: 5rem;
+  color: #666;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  color: #ccc;
+  margin: 0;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.attendance-table thead {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.2) 0%, rgba(74, 144, 226, 0.1) 100%);
+}
+
+.attendance-table th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #4a90e2;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+}
+
+.attendance-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.attendance-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateX(4px);
+}
+
+.attendance-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.attendance-table td {
+  padding: 1.2rem 1rem;
+  color: #ccc;
+  vertical-align: middle;
+}
+
+.member-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.email {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.time-cell,
+.location-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+}
+
+.time-cell ion-icon,
+.location-cell ion-icon {
+  color: #4a90e2;
+  font-size: 1rem;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .attendance-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .qr-code-container {
+    padding: 1rem;
+  }
+
+  .qr-code-container svg {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .table-container {
+    font-size: 0.85rem;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .member-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+    padding: 0.75rem;
+  }
+
+  .stat-info h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .admin-attendance-content {
+    --background: white;
+  }
+
+  .qr-code-container {
+    border: 2px solid #000;
+    box-shadow: none;
+  }
+
+  .qr-branding {
+    background: #000;
+    color: #fff;
+  }
+
+  .attendance-table-card {
+    display: none;
+  }
+}

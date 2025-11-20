@@ -1,0 +1,1531 @@
+/* ===== DARK THEME BASE ===== */
+.meal-planner-content {
+  --background: #121212;
+  padding: 0;
+  background: #121212 !important;
+}
+
+/* Header */
+.meal-planner-header {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+.meal-planner-header .header-icon {
+  font-size: 3rem;
+  color: #00e676;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px rgba(0, 230, 118, 0.5));
+}
+
+.meal-planner-header h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.meal-planner-header p {
+  color: #b0b0b0;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Container */
+.meal-planner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the hero and cards */
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #121212 !important;
+}
+
+/* In case the hero h1/p are not wrapped; target them to center too */
+.meal-planner-container > h1,
+.meal-planner-container > p {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Optional: hero block with tighter spacing */
+.meal-planner-hero {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Config Card - Force Dark Background */
+.config-card {
+  background: #1e1e1e !important;
+  border-radius: 16px;
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  width: calc(100% - 2rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  overflow: hidden;
+}
+
+.config-card ion-card-content {
+  background: #1e1e1e !important;
+  padding: 2rem;
+}
+
+/* Center the title */
+.config-card h2 {
+  color: #00e676;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(0, 230, 118, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Make Daily Targets section centered and organized */
+.targets-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.targets-section h3 {
+  color: #00e676;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Ion Items - Dark Theme Override */
+.config-card ion-item {
+  --background: #2a2a2a !important;
+  --color: #ffffff !important;
+  --border-color: rgba(255, 255, 255, 0.1) !important;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --inner-padding-end: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.config-card ion-label {
+  color: #00e676 !important;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Ion Select - Dark Theme */
+.config-card ion-select {
+  --background: #2a2a2a !important;
+  --color: #ffffff !important;
+  --placeholder-color: rgba(255, 255, 255, 0.5) !important;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  border-radius: 8px;
+  min-height: 48px;
+  font-weight: 500;
+}
+
+/* Fix Select Interface (Popover) */
+ion-select-popover,
+.select-interface-option {
+  --background: #1e1e1e !important;
+  --color: #ffffff !important;
+}
+
+.select-interface-option {
+  --background: #2a2a2a !important;
+  --background-hover: #3a3a3a !important;
+  --color: #ffffff !important;
+}
+
+/* Ion Input & Textarea - Dark Theme */
+.config-card ion-input,
+.config-card ion-textarea {
+  --background: #2a2a2a !important;
+  --color: #ffffff !important;
+  --placeholder-color: rgba(255, 255, 255, 0.5) !important;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 48px;
+  font-weight: 500;
+}
+
+.config-card ion-textarea {
+  min-height: 100px;
+  padding: 1rem;
+}
+
+/* Grid Layout for Inputs */
+.config-card ion-grid {
+  padding: 0;
+}
+
+.config-card ion-row {
+  margin: 0 -0.5rem;
+}
+
+/* Center all columns in the config card and constrain the left column width */
+.config-card ion-grid > ion-row {
+  justify-content: center; /* center columns inside the row */
+}
+
+/* Keep the left column narrow and centered */
+.config-card ion-grid > ion-row > ion-col:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the column content horizontally */
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex: 0 0 560px;  /* fixed column width (centered) */
+  max-width: 560px;
+}
+
+/* Ensure inputs/selects/textarea expand to fill the centered column */
+.config-card ion-grid > ion-row > ion-col:first-child ion-item,
+.config-card ion-grid > ion-row > ion-col:first-child ion-select,
+.config-card ion-grid > ion-row > ion-col:first-child ion-input,
+.config-card ion-grid > ion-row > ion-col:first-child ion-textarea {
+  width: 100% !important;
+  max-width: none;
+  margin: 0;
+}
+
+/* Force select caret/icon to align to the right inside the centered column */
+.config-card ion-grid > ion-row > ion-col:first-child ion-select .select-icon {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Generate Button - Full Width and Centered */
+.generate-btn {
+  --background: linear-gradient(135deg, #00e676 0%, #00c853 100%) !important;
+  --color: #000000 !important;
+  --border-radius: 12px;
+  height: 56px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 2rem auto 1rem auto;
+  text-transform: none;
+  box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  width: 100%;
+  max-width: 900px;
+  display: block;
+}
+
+.generate-btn:hover:not(:disabled) {
+  --background: linear-gradient(135deg, #00ff88 0%, #00e676 100%) !important;
+  box-shadow: 0 6px 25px rgba(0, 230, 118, 0.6);
+  transform: translateY(-2px);
+}
+
+.generate-btn:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+  transform: none;
+}
+
+.generate-btn ion-spinner {
+  color: #000000;
+  margin-right: 10px;
+}
+
+/* Section Titles */
+.config-card h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.config-card h3:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 1rem;
+}
+
+/* Plan View */
+.meal-plan-view {
+  padding: 1rem 0;
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.1) 0%, rgba(0, 200, 83, 0.05) 100%);
+  border-radius: 16px;
+  border: 2px solid rgba(0, 230, 118, 0.3);
+}
+
+.plan-header .success-icon {
+  font-size: 4rem;
+  color: #00e676;
+  margin-bottom: 1rem;
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.plan-header h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.plan-header ion-button {
+  margin-top: 1rem;
+}
+
+/* Days Grid */
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.day-card {
+  background: #1e1e1e !important;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 230, 118, 0.3);
+  border-color: #00e676;
+}
+
+.day-card ion-card-content {
+  background: #1e1e1e !important;
+  padding: 1.5rem;
+}
+
+.day-card h3 {
+  color: #00e676;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day-summary {
+  margin: 1rem 0;
+}
+
+.day-summary ion-text {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.day-summary strong {
+  color: #00e676;
+  font-size: 1.5rem;
+}
+
+.meal-preview {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.day-card ion-button {
+  --background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  --color: #000000;
+  --border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: 600;
+  height: 44px;
+}
+
+/* TODAY VIEW - FIX LIGHT BACKGROUNDS */
+.today-view {
+  animation: slideUp 0.6s ease-out;
+}
+
+.today-card {
+  --ion-background-color: #1e1e1e !important;
+  background: #1e1e1e !important;
+  border: 1px solid rgba(0, 230, 118, 0.3) !important;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 230, 118, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.today-card ion-card-header {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.15) 0%, rgba(30, 136, 229, 0.1) 100%) !important;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.3);
+  padding: 24px 20px;
+}
+
+.today-card ion-card-content {
+  background: #1e1e1e !important;
+  padding: 1.5rem;
+}
+
+.today-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00e676 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.today-title ion-icon {
+  color: #00e676;
+}
+
+.today-stats {
+  margin-top: 12px;
+  color: #b0b0b0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.today-stats ion-icon {
+  color: #00e676;
+}
+
+/* MEAL ITEMS - FIX LIGHT BACKGROUNDS */
+.meal-item {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1e1e1e !important;
+  transition: all 0.3s ease;
+}
+
+.meal-item:last-child {
+  border-bottom: none;
+}
+
+.meal-item:hover {
+  background: #252525 !important;
+  border-left: 4px solid #00e676;
+}
+
+.today-meal {
+  background: #252525 !important;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-left: 4px solid #00e676;
+}
+
+.meal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.meal-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00e676 !important;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meal-calories {
+  background: rgba(0, 230, 118, 0.2);
+  color: #00e676;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 230, 118, 0.5);
+}
+
+.meal-dish-name {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.meal-macros {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+  color: #b0b0b0;
+  font-size: 13px;
+}
+
+.meal-macros span {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.meal-macros strong {
+  color: #00e676;
+}
+
+.meal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.action-btn {
+  --background: transparent !important;
+  --border: 2px solid #00e676;
+  --color: #00e676;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  --background: rgba(0, 230, 118, 0.1) !important;
+}
+
+.action-btn[fill="clear"] {
+  --color: #00e676;
+}
+
+/* Info Cards */
+.info-card {
+  background: #1e1e1e !important;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+}
+
+.info-card ion-card-header {
+  background: #1e1e1e !important;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.2);
+}
+
+.info-card ion-card-content {
+  background: #1e1e1e !important;
+  padding: 2rem;
+}
+
+.info-card h3 {
+  color: #00e676;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 0 15px rgba(0, 230, 118, 0.3);
+}
+
+.shopping-list,
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopping-category {
+  margin-bottom: 2rem;
+}
+
+.shopping-category h4 {
+  color: #00e676;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shopping-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopping-list li,
+.tips-list li,
+.shopping-items li {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.8;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #00e676;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shopping-list li:hover,
+.tips-list li:hover,
+.shopping-items li:hover {
+  background: rgba(0, 230, 118, 0.1);
+  transform: translateX(5px);
+}
+
+.check-icon,
+.tip-icon {
+  color: #00e676;
+  flex-shrink: 0;
+}
+
+/* Day Details View */
+.day-details {
+  padding: 1rem 0;
+}
+
+.day-details h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day-totals {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.15) 0%, rgba(0, 200, 83, 0.1) 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1rem 0 2rem 0;
+  border: 2px solid rgba(0, 230, 118, 0.3);
+}
+
+.day-totals h3 {
+  color: #00e676;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Meal Detail Card */
+.meal-detail-card {
+  background: #1e1e1e !important;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.meal-detail-card ion-card-content {
+  background: #1e1e1e !important;
+  padding: 2rem;
+}
+
+.meal-detail-card h3 {
+  color: #00e676;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.5rem 0;
+}
+
+.meal-detail-card h4 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.ingredients {
+  margin: 1.5rem 0;
+}
+
+.ingredients strong {
+  color: #00e676;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.ingredients ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients li {
+  color: #ffffff;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.ingredients li::before {
+  content: "▸";
+  color: #00e676;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.macros {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.macros span {
+  background: rgba(0, 230, 118, 0.2);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.meal-detail-card ion-button {
+  --background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+  --color: #000000;
+  --border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: 600;
+  height: 44px;
+}
+
+/* Recipe Modal */
+ion-modal {
+  --background: #121212;
+}
+
+ion-modal ion-header {
+  background: #1e1e1e !important;
+}
+
+ion-modal ion-toolbar {
+  --background: #1e1e1e;
+  --color: #ffffff;
+  border-bottom: 2px solid rgba(0, 230, 118, 0.3);
+}
+
+ion-modal ion-title {
+  color: #00e676;
+  font-weight: 700;
+}
+
+ion-modal ion-content {
+  --background: #121212;
+  --color: #ffffff;
+  background: #121212 !important;
+}
+
+ion-modal h3 {
+  color: #00e676;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+ion-modal h4 {
+  color: #00e676;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 230, 118, 0.3);
+}
+
+ion-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+ion-modal li {
+  color: #ffffff;
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+ion-modal li::before {
+  content: "▸";
+  color: #00e676;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+ion-modal p {
+  color: #b0b0b0;
+  line-height: 1.8;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+}
+
+/* Recipe Modal - Fix Nutrition Facts Boxes */
+ion-modal .macros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+ion-modal .macros span {
+  background: rgba(0, 230, 118, 0.2) !important;
+  color: #ffffff !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  border: 1px solid rgba(0, 230, 118, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  flex: 1 1 auto;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Force Dark Theme for ALL Ion Components */
+ion-card {
+  --background: #1e1e1e !important;
+  --color: #ffffff !important;
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+ion-card-header {
+  --background: #1e1e1e !important;
+  --color: #ffffff !important;
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+ion-card-title {
+  --color: #00e676 !important;
+  color: #00e676 !important;
+}
+
+ion-card-content {
+  --background: #1e1e1e !important;
+  --color: #ffffff !important;
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+ion-item {
+  --background: #2a2a2a !important;
+  --color: #ffffff !important;
+  background: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+ion-label {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+ion-text {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Secondary Button Style */
+.secondary-btn {
+  --border: 2px solid rgba(0, 230, 118, 0.5);
+  --border-radius: 12px;
+  --color: #00e676;
+  font-weight: 700;
+  font-size: 16px;
+  height: 48px;
+  transition: all 0.3s ease;
+  --background: transparent;
+}
+
+.secondary-btn:hover {
+  --border-color: #00e676;
+  --color: #00e676;
+  --background: rgba(0, 230, 118, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .meal-planner-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .meal-planner-header p {
+    font-size: 0.9rem;
+  }
+
+  .days-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .config-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .generate-btn {
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .macros {
+    flex-direction: column;
+  }
+
+  .macros span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .meal-actions {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
+  /* Center all columns in the config card and constrain the left column width */
+  .config-card ion-grid > ion-row {
+    justify-content: center; /* center columns inside the row */
+  }
+
+  /* Keep the left column narrow and centered */
+  .config-card ion-grid > ion-row > ion-col:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center the column content horizontally */
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex: 0 0 560px;  /* fixed column width (centered) */
+    max-width: 560px;
+  }
+
+  /* Ensure inputs/selects/textarea expand to fill the centered column */
+  .config-card ion-grid > ion-row > ion-col:first-child ion-item,
+  .config-card ion-grid > ion-row > ion-col:first-child ion-select,
+  .config-card ion-grid > ion-row > ion-col:first-child ion-input,
+  .config-card ion-grid > ion-row > ion-col:first-child ion-textarea {
+    width: 100% !important;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Force select caret/icon to align to the right inside the centered column */
+  .config-card ion-grid > ion-row > ion-col:first-child ion-select .select-icon {
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Loading State */
+ion-spinner {
+  color: #00e676;
+}
+
+/* Smooth Transitions */
+* {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Saved Plans Section */
+.saved-plans-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.saved-plans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.saved-plans-header h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saved-plan-card {
+  background: #1e1e1e !important;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  transition: all 0.3s ease;
+}
+
+.saved-plan-card:hover {
+  border-color: #00e676;
+  box-shadow: 0 6px 25px rgba(0, 230, 118, 0.3);
+}
+
+.saved-plan-card ion-card-content {
+  background: #1e1e1e !important;
+  padding: 1.5rem;
+}
+
+.plan-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.plan-header-row h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.plan-header-row ion-button {
+  --padding-start: 0.75rem;
+  --padding-end: 0.75rem;
+  height: 38px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Edit Meal Modal */
+.edit-meal-modal {
+  --background: #1e1e1e;
+}
+
+.regenerate-options {
+  margin: 1.5rem 0;
+}
+
+.regenerate-btn {
+  --background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%) !important;
+  --color: #000000 !important;
+  margin-top: 1rem;
+}
+
+/* Day Selector Scrollbar */
+.full-week-section > div:first-child + div {
+  scrollbar-width: thin;
+  scrollbar-color: #00e676 rgba(255, 255, 255, 0.1);
+}
+
+.full-week-section > div:first-child + div::-webkit-scrollbar {
+  height: 6px;
+}
+
+.full-week-section > div:first-child + div::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.full-week-section > div:first-child + div::-webkit-scrollbar-thumb {
+  background: #00e676;
+  border-radius: 10px;
+}
+
+.full-week-section > div:first-child + div::-webkit-scrollbar-thumb:hover {
+  background: #00c853;
+}
+
+/* Smooth transitions for day changes */
+.day-card {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Segment Control Styling */
+ion-segment {
+  --background: #1e1e1e;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+ion-segment-button {
+  --color: #b0b0b0;
+  --color-checked: #000;
+  --background-checked: #00e676;
+  --border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+ion-segment-button.segment-button-checked {
+  box-shadow: 0 4px 16px rgba(0, 230, 118, 0.3);
+}
+
+/* Macro Progress Bar Styles */
+.macro-display {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0 1rem 0;
+  flex-wrap: wrap;
+}
+.macro-item {
+  background: #181818;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  min-width: 160px;
+  box-shadow: 0 2px 10px rgba(0,230,118,0.07);
+  margin-bottom: 1rem;
+}
+.macro-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00e676;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.macro-icon {
+  font-size: 1.3rem;
+}
+.macro-label {
+  font-size: 1rem;
+}
+.macro-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #232323;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+.macro-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00e676, #00ff88);
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(.4,2,.6,1);
+}
+.macro-values {
+  display: flex;
+  justify-content: space-between;
+  color: #b0b0b0;
+  font-size: 0.95rem;
+}
+.macro-value {
+  color: #fff;
+  font-weight: 600;
+}
+.macro-target {
+  color: #00e676;
+  font-weight: 600;
+}
+
+/* Restriction Chip */
+.restriction-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 152, 0, 0.15);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  color: #ff9800;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Modal Content */
+.modal-content {
+  padding: 2rem 1rem;
+}
+.modal-info {
+  color: #00e676;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.modal-description {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Recipe Modal */
+.recipe-content {
+  padding: 1rem 0;
+}
+.recipe-title {
+  color: #00e676;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.recipe-macros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.macro-card {
+  background: rgba(0,230,118,0.12);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.recipe-section {
+  margin-bottom: 1.5rem;
+}
+.section-heading {
+  color: #00e676;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.ingredients-list {
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+}
+.recipe-text {
+  color: #b0b0b0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Saved Plans Modal */
+.saved-plans-list {
+  padding: 2rem 1rem;
+}
+.saved-plan-card {
+  background: #181818 !important;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,230,118,0.07);
+  border: 1px solid rgba(0,230,118,0.15);
+}
+.saved-plan-name {
+  color: #00e676;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.saved-plan-date {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.saved-plan-actions {
+  display: flex;
+  gap: 10px;
+}
+.load-btn {
+  --background: #00e676;
+  --color: #000;
+  font-weight: 600;
+}
+.delete-btn {
+  --background: #ff1744;
+  --color: #fff;
+  font-weight: 600;
+}
+.empty-state {
+  color: #b0b0b0;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+  .macro-display {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .macro-item {
+    min-width: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  .segment-wrapper {
+    margin: 1.2rem 0 1rem 0;
+  }
+  .saved-plans-list {
+    padding: 1rem 0.2rem;
+  }
+}
+
+/* Make meal names in 7-day view stand out */
+.day-card .meal-item h4,
+.day-card .meal-item .meal-dish-name {
+  color: #00e676 !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+
+/* Make meal macros and details lighter for contrast */
+.day-card .meal-item p,
+.day-card .meal-item .meal-macros {
+  color: #b0b0b0 !important;
+  font-size: 0.98rem;
+}
+
+/* Add background and padding for meal items in 7-day view */
+.day-card .meal-item {
+  background: #181818 !important;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(0,230,118,0.10);
+  box-shadow: 0 2px 8px rgba(0,230,118,0.04);
+}
+
+/* On hover, highlight the meal item */
+.day-card .meal-item:hover {
+  background: #232323 !important;
+  border-left: 4px solid #00e676;
+}
+
+/* Make action buttons more visible */
+.day-card .meal-item .meal-actions ion-button {
+  --color: #00e676;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Header Save Plan button styling */
+.save-plan-btn {
+  --background: transparent;
+  --color: #00e676;
+  --border-radius: 8px;
+  --padding-start: 0.6rem;
+  --padding-end: 0.6rem;
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  margin-right: 0.5rem;
+  border: 1px solid rgba(0, 230, 118, 0.08);
+  font-weight: 700;
+}
+
+/* Reduce text on small screens to avoid overflow; show icon-only */
+@media (max-width: 420px) {
+  .save-plan-btn {
+    padding: 8px;
+    gap: 6px;
+  }
+  .save-plan-btn ion-label, .save-plan-btn span {
+    display: none;
+  }
+}
+
+/* Center hero/title and keep config card centered --------------------- */
+/* Make the top page hero content centered and constrained */
+.meal-planner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the hero and cards */
+  gap: 1.25rem;
+  padding: 1rem;
+}
+
+/* In case the hero h1/p are not wrapped; target them to center too */
+.meal-planner-container > h1,
+.meal-planner-container > p {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Optional: hero block with tighter spacing */
+.meal-planner-hero {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Keep config card centered and aligned with hero */
+.config-card {
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  width: calc(100% - 2rem);
+}
+
+/* Ensure days grid (week view) and saved plans are full width but centered */
+.days-grid,
+.saved-plans-section,
+.info-card,
+.day-details {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Fix: avoid hero text overflow (small screens) */
+@media (max-width: 900px) {
+  .meal-planner-container > h1,
+  .meal-planner-container > p,
+  .config-card,
+  .days-grid {
+    padding: 0 0.75rem;
+  }
+  .meal-planner-header {
+    padding: 1rem;
+  }
+}
+
+/* Ensure Save button doesn't push header content off-center */
+.meal-planner-header ion-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.meal-planner-header .meal-toolbar .ion-title {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Center first column form items (lifestyle, meal preference, fitness, allergies) */
+.config-card ion-grid > ion-row > ion-col:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the column content horizontally */
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Limit width of the inputs inside the left column and center them */
+.config-card ion-grid > ion-row > ion-col:first-child ion-item,
+.config-card ion-grid > ion-row > ion-col:first-child ion-select,
+.config-card ion-grid > ion-row > ion-col:first-child ion-input,
+.config-card ion-grid > ion-row > ion-col:first-child ion-textarea {
+  width: 92% !important;   /* slight padding so items don't touch edges */
+  max-width: 560px;        /* keep boxes visually consistent */
+  margin: 0 auto;          /* horizontal center */
+}
+
+/* Make sure select caret and display remain aligned inside the limited width */
+.config-card ion-grid > ion-row > ion-col:first-child ion-select::part(text),
+.config-card ion-grid > ion-row > ion-col:first-child ion-select .select-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* For Allergies textarea, keep a nice centered block and readable height */
+.config-card ion-grid > ion-row > ion-col:first-child ion-textarea {
+  min-height: 120px;
+  width: 92% !important;
+}
+
+/* Small screens: keep full width, stacked, and centered */
+@media (max-width: 768px) {
+  .config-card ion-grid > ion-row > ion-col:first-child ion-item,
+  .config-card ion-grid > ion-row > ion-col:first-child ion-select,
+  .config-card ion-grid > ion-row > ion-col:first-child ion-input,
+  .config-card ion-grid > ion-row > ion-col:first-child ion-textarea {
+    width: 100% !important;
+    max-width: none;
+    margin: 0;
+  }
+}

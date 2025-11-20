@@ -1,0 +1,13 @@
+:root {
+  --ion-color-primary: #0d9488; /* teal gym color */
+  --ion-color-primary-rgb: 13, 148, 136;
+
+  --ion-color-secondary: #f97316; /* orange for energy */
+  --ion-color-secondary-rgb: 249, 115, 22;
+
+  --ion-color-dark: #1e293b; /* dark background */
+  --ion-color-dark-rgb: 30, 41, 59;
+
+  --ion-color-light: #f1f5f9;
+  --ion-color-light-rgb: 241, 245, 249;
+}

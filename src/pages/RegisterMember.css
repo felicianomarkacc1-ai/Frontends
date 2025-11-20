@@ -1,0 +1,15 @@
+/* ✅ Paste everything from your <style> here. 
+   No need to change anything — Ionic will load it automatically. */
+:root {
+  --primary: #00e676;
+  --primary-dark: #00c853;
+  --secondary: #64748b;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --border: #e2e8f0;
+}
+
+/* ... the rest of your CSS exactly as in your inline style ... */

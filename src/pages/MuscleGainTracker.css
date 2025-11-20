@@ -1,0 +1,124 @@
+/* Base Styles */
+ion-content {
+  --background: #121212;
+}
+
+/* Form Container */
+.form-container {
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(13, 148, 136, 0.15);
+  backdrop-filter: blur(10px);
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Form Section */
+.form-section {
+  padding: 20px;
+  background: rgba(32, 32, 32, 0.8);
+  border-radius: 12px;
+  border-left: 3px solid var(--ion-color-primary);
+}
+
+.form-section-title {
+  color: var(--ion-color-primary);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-section-description {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Input Styles */
+ion-item {
+  --background: rgba(26, 26, 26, 0.9) !important;
+  --border-color: rgba(13, 148, 136, 0.3);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(12px);
+}
+
+ion-input {
+  --color: #ffffff;
+  --placeholder-color: rgba(255, 255, 255, 0.6);
+}
+
+ion-label {
+  --color: var(--ion-color-primary);
+  font-weight: 500;
+}
+
+/* Charts Container */
+.charts-container {
+  background: rgba(32, 32, 32, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.chart-controls {
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  height: 400px;
+  position: relative;
+}
+
+/* Table Styles */
+.table-container {
+  background: rgba(32, 32, 32, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--ion-color-primary);
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    height: 300px;
+  }
+}

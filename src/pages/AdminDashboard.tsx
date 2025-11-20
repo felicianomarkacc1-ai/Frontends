@@ -1,0 +1,339 @@
+import React, { useEffect, useState } from "react";
+import {
+  IonPage,
+  IonContent,
+  IonIcon,
+  useIonRouter,
+} from "@ionic/react";
+import {
+  people,
+  barbell,
+  card,
+  calendar,
+  logOut,
+  cash,
+  statsChart,
+  checkmarkCircle,
+} from "ionicons/icons";
+import "./AdminDashboard.css";
+
+const API_URL = 'http://localhost:3002/api';
+
+const AdminDashboard: React.FC = () => {
+  const [adminName, setAdminName] = useState("Admin User");
+  const [firstName, setFirstName] = useState("Admin");
+  const [totalMembers, setTotalMembers] = useState(0);
+  const [activeMembers, setActiveMembers] = useState(0);
+  const [totalEquipment, setTotalEquipment] = useState(0);
+  const [totalRevenue, setTotalRevenue] = useState(0);
+  const [todayAttendance, setTodayAttendance] = useState(0);
+  const [pendingPayments, setPendingPayments] = useState(0);
+  const router = useIonRouter();
+
+  useEffect(() => {
+    const userStr = localStorage.getItem("user");
+    if (userStr) {
+      try {
+        const user = JSON.parse(userStr);
+        const fullName = `${user.firstName} ${user.lastName}`;
+        setAdminName(fullName);
+        setFirstName(user.firstName);
+      } catch (err) {
+        console.error("Invalid user data");
+      }
+    } else {
+      router.push("/home", "root", "replace");
+    }
+
+    loadDashboardStats();
+
+    const onPaymentUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      console.log('\n🔔 ===== PAYMENT UPDATE RECEIVED IN DASHBOARD =====');
+      console.log('Event type:', customEvent.detail?.type);
+      console.log('Member:', customEvent.detail?.memberName);
+      console.log('Amount:', `₱${customEvent.detail?.amount?.toLocaleString()}`);
+      console.log('New Total Revenue:', `₱${customEvent.detail?.totalRevenue?.toLocaleString()}`);
+      
+      console.log('🔄 Refreshing dashboard stats immediately...');
+      loadDashboardStats();
+    };
+
+    window.addEventListener('payments:updated', onPaymentUpdate);
+    console.log('👂 Admin Dashboard listening for payment events');
+
+    const interval = setInterval(() => {
+      console.log('🔄 Auto-refresh dashboard (30s)...');
+      loadDashboardStats();
+    }, 30000);
+
+    return () => {
+      window.removeEventListener('payments:updated', onPaymentUpdate);
+      clearInterval(interval);
+    };
+  }, [router]);
+
+  const loadDashboardStats = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      console.log('\n📊 ===== LOADING DASHBOARD STATS =====');
+
+      const membersRes = await fetch(`${API_URL}/members`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      if (membersRes.ok) {
+        const membersData = await membersRes.json();
+        setTotalMembers(membersData.length);
+        setActiveMembers(membersData.filter((m: any) => m.status === 'active').length);
+        console.log(`👥 Members: ${membersData.length} total, ${membersData.filter((m: any) => m.status === 'active').length} active`);
+      }
+
+      console.log('💰 Fetching payment summary...');
+      const summaryRes = await fetch(`${API_URL}/admin/payments/summary`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      console.log(`📡 Summary response status: ${summaryRes.status}`);
+      
+      if (summaryRes.ok) {
+        const summary = await summaryRes.json();
+        console.log('📊 Summary response:', summary);
+        
+        if (summary.success) {
+          const revenue = Number(summary.totalRevenue) || 0;
+          const pending = Number(summary.pendingPayments) || 0;
+          const paid = Number(summary.paidPayments) || 0;
+          
+          console.log(`💰 Total Revenue: ₱${revenue.toLocaleString()}`);
+          console.log(`✅ Paid Payments: ${paid}`);
+          console.log(`⏳ Pending Payments: ${pending}`);
+          
+          setTotalRevenue(revenue);
+          setPendingPayments(pending);
+          
+          if (revenue === 0 && paid === 0) {
+            console.log('⚠️ No revenue found, checking database directly...');
+            const debugRes = await fetch(`${API_URL}/admin/payments/all`, {
+              headers: { Authorization: `Bearer ${token}` }
+            });
+            
+            if (debugRes.ok) {
+              const allPayments = await debugRes.json();
+              console.log(`🔍 Debug: Total payments in DB: ${allPayments.length}`);
+              allPayments.forEach((p: any, i: number) => {
+                console.log(`  ${i+1}. ID: ${p.id}, Amount: ₱${p.amount}, Status: ${p.payment_status}, Date: ${p.payment_date}`);
+              });
+            }
+          }
+        } else {
+          console.error('❌ Payment summary failed:', summary.message);
+        }
+      } else {
+        const errorText = await summaryRes.text();
+        console.error('❌ Failed to fetch payment summary:', errorText);
+      }
+
+      // Replace /api/admin/reports/today with /api/admin/attendance/today
+      console.log('📡 Fetching today attendance (admin) ...');
+      const attendanceRes = await fetch(`${API_URL}/admin/attendance/today`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      if (attendanceRes.ok) {
+        const attendanceData = await attendanceRes.json();
+        console.log('📊 Admin attendance response:', attendanceData);
+        if (attendanceData.success && Array.isArray(attendanceData.present)) {
+          setTodayAttendance(attendanceData.present.length || 0);
+        } else {
+          // Fallback - if the route returns something different
+          setTodayAttendance(attendanceData.present ? attendanceData.present.length : 0);
+        }
+      } else {
+        console.warn('❌ Failed to fetch admin attendance today. Status:', attendanceRes.status);
+        setTodayAttendance(0);
+      }
+
+      const equipmentStr = localStorage.getItem('equipments');
+      if (equipmentStr) {
+        const equipments = JSON.parse(equipmentStr);
+        setTotalEquipment(equipments.length);
+      }
+
+      console.log('===== DASHBOARD STATS LOADED =====\n');
+
+    } catch (error) {
+      console.error('❌ Error loading dashboard stats:', error);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    router.push("/home", "root", "replace");
+  };
+
+  const handleNavigation = (path: string) => {
+    console.log(`Navigating to: ${path}`);
+    router.push(path, "forward", "push");
+  };
+
+  return (
+    <IonPage>
+      <IonContent className="ion-padding">
+        <div className="dashboard-container">
+          {/* Sidebar with Dashboard Title */}
+          <aside className="sidebar">
+            <div className="dashboard-title-section">
+              <h1 className="dashboard-title">Admin Dashboard</h1>
+            </div>
+
+            <div className="profile-section">
+              <div className="profile-avatar">
+                <i className="fas fa-user-shield"></i>
+              </div>
+              <h2 className="profile-name">{adminName}</h2>
+              <span className="membership-status">Administrator</span>
+            </div>
+
+            <nav>
+              <ul className="nav-menu">
+                <li className="nav-item">
+                  <button
+                    className="nav-link active"
+                    onClick={() => handleNavigation("/admin")}
+                  >
+                    <IonIcon icon={statsChart} />
+                    Dashboard
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link"
+                    onClick={() => handleNavigation("/members-management")}
+                  >
+                    <IonIcon icon={people} />
+                    Members
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link"
+                    onClick={() => handleNavigation("/admin-payments")}
+                  >
+                    <IonIcon icon={card} />
+                    Payments
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link"
+                    onClick={() => handleNavigation("/admin-attendance")}
+                  >
+                    <IonIcon icon={calendar} />
+                    Attendance
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link"
+                    onClick={() => handleNavigation("/equipment-management")}
+                  >
+                    <IonIcon icon={barbell} />
+                    Equipment
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link logout-btn" onClick={handleLogout}>
+                    <IonIcon icon={logOut} />
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+
+          {/* Main Content */}
+          <main className="main-content">
+            <div className="content-wrapper">
+              <header className="page-header">
+                <div className="welcome-text">
+                  <h1>Welcome back, {firstName}! 👋</h1>
+                  <p>Here's what's happening in your gym today</p>
+                </div>
+                <div className="quick-stats">
+                  <IonIcon icon={checkmarkCircle} />
+                  System Active
+                </div>
+              </header>
+
+              <section className="dashboard-grid">
+                <div className="dashboard-card" onClick={() => handleNavigation("/members-management")}>
+                  <IonIcon icon={people} className="card-icon" />
+                  <h3 className="card-title">Total Members</h3>
+                  <p className="card-stat">{totalMembers}</p>
+                  <p className="card-description">{activeMembers} active members</p>
+                </div>
+
+                <div className="dashboard-card" onClick={() => handleNavigation("/admin-payments")}>
+                  <IonIcon icon={cash} className="card-icon" />
+                  <h3 className="card-title">Total Revenue</h3>
+                  <p className="card-stat">₱{totalRevenue.toLocaleString()}</p>
+                  <p className="card-description">All-time revenue from paid payments</p>
+                </div>
+
+                <div className="dashboard-card" onClick={() => handleNavigation("/equipment-management")}>
+                  <IonIcon icon={barbell} className="card-icon" />
+                  <h3 className="card-title">Equipment</h3>
+                  <p className="card-stat">{totalEquipment}</p>
+                  <p className="card-description">Total equipment items</p>
+                </div>
+
+                <div className="dashboard-card" onClick={() => handleNavigation("/admin-attendance")}>
+                  <IonIcon icon={calendar} className="card-icon" />
+                  <h3 className="card-title">Today's Attendance</h3>
+                  <p className="card-stat">{todayAttendance}</p>
+                  <p className="card-description">Members checked in today</p>
+                </div>
+              </section>
+
+              <section className="progress-section">
+                <div className="progress-header">
+                  <h2 className="progress-title">Quick Actions</h2>
+                </div>
+
+                <div className="progress-grid">
+                  <div className="progress-item action-card" onClick={() => handleNavigation("/members-management")}>
+                    <IonIcon icon={people} style={{ fontSize: '2rem', color: '#4a90e2' }} />
+                    <h4>Manage Members</h4>
+                    <p>Add, edit, or view member details</p>
+                  </div>
+
+                  <div className="progress-item action-card" onClick={() => handleNavigation("/admin-payments")}>
+                    <IonIcon icon={card} style={{ fontSize: '2rem', color: '#00e676' }} />
+                    <h4>View Payments</h4>
+                    <p>{pendingPayments} pending approval</p>
+                  </div>
+
+                  <div className="progress-item action-card" onClick={() => handleNavigation("/admin-attendance")}>
+                    <IonIcon icon={calendar} style={{ fontSize: '2rem', color: '#ffc107' }} />
+                    <h4>QR Attendance</h4>
+                    <p>Generate QR code for check-in</p>
+                  </div>
+
+                  <div className="progress-item action-card" onClick={() => handleNavigation("/equipment-management")}>
+                    <IonIcon icon={barbell} style={{ fontSize: '2rem', color: '#ff6b6b' }} />
+                    <h4>Equipment</h4>
+                    <p>Manage gym equipment inventory</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </main>
+        </div>
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default AdminDashboard;
