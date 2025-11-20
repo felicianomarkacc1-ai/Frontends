@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import {
   IonPage,
   IonHeader,
@@ -57,22 +57,22 @@ const EquipmentManagement: React.FC = () => {
     notes: "",
   });
 
-  useEffect(() => {
-    loadEquipments();
-  }, []);
-
-  useEffect(() => {
-    filterEquipments();
-  }, [searchText, equipments]);
-
-  const loadEquipments = () => {
+  const loadEquipments = useCallback(() => {
     const stored = localStorage.getItem("equipments");
     if (stored) {
       const data = JSON.parse(stored);
       setEquipments(data);
       setFilteredEquipments(data);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    loadEquipments();
+  }, [loadEquipments]);
+
+  useEffect(() => {
+    filterEquipments();
+  }, [searchText, equipments]);
 
   const filterEquipments = () => {
     if (!searchText.trim()) {
