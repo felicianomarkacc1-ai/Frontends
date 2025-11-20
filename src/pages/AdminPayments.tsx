@@ -114,13 +114,9 @@ const AdminPayments: React.FC = () => {
     loadPayments();
     const interval = setInterval(loadPayments, 30000);
     return () => clearInterval(interval);
-  }, [loadPayments, filterPayments]);
+  }, [loadPayments]); // removed filterPayments here
 
-  useEffect(() => {
-    filterPayments();
-  }, [searchText, payments]);
-
-  const filterPayments = () => {
+  const filterPayments = useCallback(() => {
     let filtered = payments;
 
     if (searchText.trim()) {
@@ -134,7 +130,11 @@ const AdminPayments: React.FC = () => {
     }
 
     setFilteredPayments(filtered);
-  };
+  }, [payments, searchText]);
+
+  useEffect(() => {
+    filterPayments();
+  }, [filterPayments]);
 
   const handleRefresh = async (event: any) => {
     await loadPayments();
