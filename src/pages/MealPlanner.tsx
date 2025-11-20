@@ -14,7 +14,6 @@ import {
   IonLabel,
   IonInput,
   IonSpinner,
-  IonText,
   IonIcon,
   IonModal,
   IonButtons,
@@ -27,7 +26,6 @@ import {
   useIonToast,
   IonCardHeader,
   IonCardTitle,
-  IonChip,
   IonSegment,
   IonSegmentButton,
 } from "@ionic/react";
@@ -43,14 +41,11 @@ import {
   trash,
   documents,
   flame,
-  chevronForward,
   cart,
   bulb,
   warning,
   checkmarkCircle,
   listCircle,
-  arrowForward,
-  star,
   time,
 } from "ionicons/icons";
 import "./MealPlanner.css";
@@ -486,25 +481,6 @@ const MealPlanner: React.FC = () => {
   };
 
   const todayPlan = mealPlan?.weekPlan?.find(d => d.day === getTodayDayName());
-
-  const MacroProgress = ({ label, value, target, icon }: { label: string; value: number; target: number; icon: string }) => {
-    const percentage = Math.min((value / target) * 100, 100);
-    return (
-      <div className="macro-item">
-        <div className="macro-header">
-          <span className="macro-icon">{icon}</span>
-          <span className="macro-label">{label}</span>
-        </div>
-        <div className="macro-progress-bar">
-          <div className="macro-progress-fill" style={{ width: `${percentage}%` }}></div>
-        </div>
-        <div className="macro-values">
-          <span className="macro-value">{value}g</span>
-          <span className="macro-target">{target}g</span>
-        </div>
-      </div>
-    );
-  };
 
   // Helper: derive concise instruction text from recipe when explicit instructions missing
   function generateInstructionFromRecipe(recipe?: string | null): string {

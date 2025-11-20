@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   IonPage,
   IonHeader,
@@ -95,15 +95,7 @@ const MembersManagement: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false); // ✅ Add this line
   const [presentToast] = useIonToast();
 
-  useEffect(() => {
-    loadMembers();
-  }, []);
-
-  useEffect(() => {
-    filterMembers();
-  }, [searchText, members]);
-
-  const loadMembers = async () => {
+  const loadMembers = useCallback(async () => {
     try {
       const res = await fetch(`${API_URL}/members`, {
         headers: {
@@ -122,7 +114,17 @@ const MembersManagement: React.FC = () => {
         color: 'danger',
       });
     }
-  };
+  }, [presentToast]);
+
+  useEffect(() => {
+    loadMembers();
+    const interval = setInterval(loadMembers, 30000);
+    return () => clearInterval(interval);
+  }, [loadMembers]);
+
+  useEffect(() => {
+    filterMembers();
+  }, [searchText, members]);
 
   const filterMembers = () => {
     if (!searchText.trim()) {

@@ -54,6 +54,7 @@ const AdminPayments: React.FC = () => {
   const [paymentToDelete, setPaymentToDelete] = useState<number | null>(null);
   const [presentToast] = useIonToast();
 
+  // ensure loadPayments is stable if it uses presentToast or other values
   const loadPayments = useCallback(async () => {
     try {
       setLoading(true);
@@ -113,7 +114,7 @@ const AdminPayments: React.FC = () => {
     loadPayments();
     const interval = setInterval(loadPayments, 30000);
     return () => clearInterval(interval);
-  }, [loadPayments]);
+  }, [loadPayments, filterPayments]);
 
   useEffect(() => {
     filterPayments();
